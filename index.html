@@ -74,21 +74,24 @@
             text-align: left;
         }
 
-        .extra-links h3 { font-size: 12px; color: var(--uniara-red); text-transform: uppercase; margin: 0 0 16px 0; letter-spacing: 0.05em; font-weight: 700; }
-        
-        .useful-link {
+       .extra-links h3 { 
+            font-size: 11px; 
+            color: #64748b; /* Cinza azulado elegante */
+            text-transform: uppercase; 
+            margin: 0 0 16px 0; 
+            letter-spacing: 0.12em; /* Espaçamento que dá sofisticação */
+            font-weight: 700;
             display: flex;
             align-items: center;
-            color: #4b5563;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 8px;
-            padding: 12px;
-            border-radius: 10px;
-            background: #fdfdfd;
-            border: 1px solid #f3f4f6;
-            transition: 0.2s;
-            gap: 10px;
+            gap: 8px;
+        }
+
+        /* Um detalhe opcional: uma linha fina ao lado do título */
+        .extra-links h3::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #f1f5f9;
         }
 
         .useful-link i { width: 18px; height: 18px; color: #9ca3af; }
