@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Ferramentas Acadêmicas | Uniara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --uniara-blue: #008cd2; 
+            --uniara-red: #ec1c24;  
+            --uniara-dark: #111827;
+            --bg: #f9fafb;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            border: 1px solid #f3f4f6;
+        }
+
+        .logo-uniara {
+            max-width: 170px;
+            margin-bottom: 24px;
+        }
+
+        h1 { font-size: 24px; font-weight: 700; color: var(--uniara-dark); margin: 0 0 8px 0; letter-spacing: -0.025em; }
+        p.subtitle { color: #6b7280; margin: 0 0 32px 0; font-size: 15px; line-height: 1.5; }
+
+        .btn-group { display: grid; gap: 12px; }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 10px;
+        }
+
+        .btn i { width: 20px; height: 20px; }
+
+        .btn-sipe { background-color: var(--uniara-blue); color: white; }
+        .btn-sipe:hover { background-color: #007bb0; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 140, 210, 0.2); }
+
+        .btn-ppc { background-color: var(--uniara-dark); color: white; }
+        .btn-ppc:hover { background-color: #000; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+        .extra-links {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #f3f4f6;
+            text-align: left;
+        }
+
+        .extra-links h3 { font-size: 12px; color: var(--uniara-red); text-transform: uppercase; margin: 0 0 16px 0; letter-spacing: 0.05em; font-weight: 700; }
+        
+        .useful-link {
+            display: flex;
+            align-items: center;
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #fdfdfd;
+            border: 1px solid #f3f4f6;
+            transition: 0.2s;
+            gap: 10px;
+        }
+
+        .useful-link i { width: 18px; height: 18px; color: #9ca3af; }
+
+        .useful-link:hover { 
+            background: white; 
+            color: var(--uniara-blue); 
+            border-color: var(--uniara-blue);
+            padding-left: 16px;
+        }
+
+        .useful-link:hover i { color: var(--uniara-blue); }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 11px;
+            color: #9ca3af;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="logo_uniara_oficial.png" alt="Logo Uniara" class="logo-uniara">
+        
+        <h1>Portal de Ferramentas Acadêmicas</h1>
+        <p class="subtitle">Gestão estratégica de ensino e conformidade de projetos pedagógicos Uniara.</p>
+
+        <div class="btn-group">
+            <a href="https://sipe-uniara.web.app/" target="_blank" class="btn btn-sipe">
+                <i data-lucide="layout-dashboard"></i> Acessar SIPE
+            </a>
+            <a href="https://gerappc.gbxlearningtools.com/" target="_blank" class="btn btn-ppc">
+                <i data-lucide="file-edit"></i> Acessar Gera PPC
+            </a>
+        </div>
+
+        <div class="extra-links">
+            <h3>Documentação e Suporte</h3>
+            
+            <a href="https://drive.google.com/file/d/16qHK7s_25s0eBR11El17By7fMlVzz_ml/view?usp=sharing" class="useful-link">
+                <i data-lucide="book-open"></i> Guia de Uso - SIPE
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1zn6H8Yb4Sfu9bNsU7yy9ZHFd3MYfA4UP/view?usp=sharing" class="useful-link">
+                <i data-lucide="scroll-text"></i> Guia de Uso - Gera PPC
+            </a>
+            
+           <p style="font-size: 11px; color: #9ca3af; font-weight: 700; text-transform: uppercase; margin: 20px 0 10px 0; letter-spacing: 0.5px;">Canais de Suporte Técnico</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="https://wa.me/5516981492620" class="useful-link" style="margin-bottom: 0;">
+                    <i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp 
+                </a>
+                
+                </a>
+            </div>
+            
+            <a href="mailto:gbraz@uniara.edu.br" class="useful-link" style="margin-top: 10px;">
+                <i data-lucide="mail"></i> Enviar E-mail Institucional
+            </a>
+        </div>
+
+        <div class="footer">
+            UNIVERSIDADE DE ARARAQUARA
+        </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
