@@ -28,7 +28,7 @@
         .card {
             background: white;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px; /* Aumentado levemente para acomodar as colunas */
             padding: 40px;
             border-radius: 24px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -44,7 +44,7 @@
         h1 { font-size: 24px; font-weight: 700; color: var(--uniara-dark); margin: 0 0 8px 0; letter-spacing: -0.025em; }
         p.subtitle { color: #6b7280; margin: 0 0 32px 0; font-size: 15px; line-height: 1.5; }
 
-        .btn-group { display: grid; gap: 12px; }
+        .btn-group { display: grid; gap: 12px; margin-bottom: 35px; }
 
         .btn {
             display: flex;
@@ -59,58 +59,95 @@
             gap: 10px;
         }
 
-        .btn i { width: 20px; height: 20px; }
-
         .btn-sipe { background-color: var(--uniara-blue); color: white; }
-        .btn-sipe:hover { background-color: #007bb0; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 140, 210, 0.2); }
+        .btn-sipe:hover { background-color: #007bb0; transform: translateY(-2px); }
 
         .btn-ppc { background-color: var(--uniara-dark); color: white; }
-        .btn-ppc:hover { background-color: #000; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .btn-ppc:hover { background-color: #000; transform: translateY(-2px); }
 
+        /* NOVA SEÇÃO DE RECURSOS E SUPORTE */
         .extra-links {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #f3f4f6;
+            margin-top: 20px;
+            padding-top: 25px;
+            border-top: 1px solid #f1f5f9;
             text-align: left;
         }
 
-       .extra-links h3 { 
-            font-size: 11px; 
-            color: #64748b; /* Cinza azulado elegante */
-            text-transform: uppercase; 
-            margin: 0 0 16px 0; 
-            letter-spacing: 0.12em; /* Espaçamento que dá sofisticação */
+        .section-title {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             font-weight: 700;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
         }
 
-        /* Um detalhe opcional: uma linha fina ao lado do título */
-        .extra-links h3::after {
+        .section-title::before, .section-title::after {
             content: "";
             flex: 1;
             height: 1px;
             background: #f1f5f9;
         }
 
-        .useful-link i { width: 18px; height: 18px; color: #9ca3af; }
-
-        .useful-link:hover { 
-            background: white; 
-            color: var(--uniara-blue); 
-            border-color: var(--uniara-blue);
-            padding-left: 16px;
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
         }
 
-        .useful-link:hover i { color: var(--uniara-blue); }
+        /* Linha divisória vertical */
+        .support-grid::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #f1f5f9;
+        }
+
+        .column-title {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .item-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+            gap: 10px;
+        }
+
+        .item-link:hover {
+            color: var(--uniara-blue);
+        }
+
+        .item-link i {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
 
         .footer {
-            margin-top: 32px;
+            margin-top: 40px;
             font-size: 11px;
-            color: #9ca3af;
+            color: #94a3b8;
             font-weight: 600;
             letter-spacing: 0.05em;
+            text-align: center;
         }
     </style>
 </head>
@@ -132,38 +169,38 @@
         </div>
 
         <div class="extra-links">
-            <h3>Documentação e Suporte</h3>
+            <div class="section-title">Recursos e Suporte Técnico</div>
             
-            <a href="https://drive.google.com/file/d/16qHK7s_25s0eBR11El17By7fMlVzz_ml/view?usp=sharing" class="useful-link">
-                <i data-lucide="book-open"></i> Guia de Uso - SIPE
-            </a>
-            
-            <a href="https://drive.google.com/file/d/1zn6H8Yb4Sfu9bNsU7yy9ZHFd3MYfA4UP/view?usp=sharing" class="useful-link">
-                <i data-lucide="scroll-text"></i> Guia de Uso - Gera PPC
-            </a>
-            
-           <p style="font-size: 11px; color: #9ca3af; font-weight: 700; text-transform: uppercase; margin: 20px 0 10px 0; letter-spacing: 0.5px;">Canais de Suporte Técnico</p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <a href="https://wa.me/5516981492620" class="useful-link" style="margin-bottom: 0;">
-                    <i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp 
-                </a>
-                
-                </a>
+            <div class="support-grid">
+                <div class="support-column">
+                    <span class="column-title">Documentação</span>
+                    <a href="https://drive.google.com/file/d/16qHK7s_25s0eBR11El17By7fMlVzz_ml/view?usp=sharing" target="_blank" class="item-link">
+                        <i data-lucide="book-open"></i> Guia de Uso - SIPE
+                    </a>
+                    <a href="https://drive.google.com/file/d/1zn6H8Yb4Sfu9bNsU7yy9ZHFd3MYfA4UP/view?usp=sharing" target="_blank" class="item-link">
+                        <i data-lucide="scroll-text"></i> Guia de Uso - PPC
+                    </a>
+                </div>
+
+                <div class="support-column" style="padding-left: 15px;">
+                    <span class="column-title">Suporte</span>
+                    <a href="https://wa.me/5516981492620" target="_blank" class="item-link">
+                        <i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp
+                    </a>
+                    <a href="mailto:gbraz@uniara.edu.br" class="item-link">
+                        <i data-lucide="mail"></i> Enviar E-mail
+                    </a>
+                </div>
             </div>
-            
-            <a href="mailto:gbraz@uniara.edu.br" class="useful-link" style="margin-top: 10px;">
-                <i data-lucide="mail"></i> Enviar E-mail Institucional
-            </a>
         </div>
 
         <div class="footer">
-            UNIVERSIDADE DE ARARAQUARA
+            © UNIVERSIDADE DE ARARAQUARA
         </div>
     </div>
 
     <script>
-      lucide.createIcons();
+        lucide.createIcons();
     </script>
 </body>
 </html>
