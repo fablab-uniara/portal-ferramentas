@@ -31,7 +31,7 @@
         .portal-container {
             background: white;
             width: 100%;
-            max-width: 900px; /* Expandido para dar respiro de dashboard */
+            max-width: 900px;
             padding: 48px;
             border-radius: 24px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 20px 25px -5px rgba(0, 0, 0, 0.05);
@@ -77,7 +77,7 @@
         .tool-card {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Alinhamento à esquerda para um tom mais corporativo */
+            align-items: flex-start;
             justify-content: space-between;
             padding: 24px;
             border-radius: 16px;
@@ -99,6 +99,23 @@
             background: transparent;
             transition: background 0.2s;
         }
+
+        /* ESTILIZAÇÃO MICRO-BADGES DE STATUS */
+        .status-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .status-production { background: #e0f2fe; color: #0369a1; }
+        .status-active-ai { background: #f3e8ff; color: #6b21a8; }
+        .status-dev { background: #f1f5f9; color: #64748b; }
 
         .tool-card-content {
             width: 100%;
@@ -122,6 +139,7 @@
             font-weight: 700;
             color: var(--uniara-dark);
             margin: 0;
+            padding-right: 60px; /* Evita que o título bata no badge */
         }
 
         .tool-desc {
@@ -159,6 +177,60 @@
         .tool-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* BANNER DE FEEDBACK COLLABORATIVO */
+        .feedback-banner {
+            background: #f8fafc;
+            border: 1px dashed var(--card-border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .feedback-text h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--uniara-dark);
+        }
+
+        .feedback-text p {
+            margin: 0;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .feedback-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .feedback-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            border: 1px solid var(--card-border);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .feedback-btn:hover {
+            border-color: var(--uniara-blue);
+            color: var(--uniara-blue);
+            background: #f0f9ff;
         }
 
         /* SUPORTE E RECURSOS ADICIONAIS */
@@ -243,6 +315,11 @@
         @media (max-width: 850px) {
             .tools-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 640px) {
+            .feedback-banner { flex-direction: column; align-items: flex-start; }
+            .feedback-actions { width: 100%; }
+            .feedback-btn { flex: 1; justify-content: center; }
+        }
         @media (max-width: 600px) {
             .tools-grid { grid-template-columns: 1fr; }
             .support-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -262,6 +339,7 @@
         <div class="tools-grid">
             
             <a href="https://sipe.gbxlearningtools.com/" target="_blank" class="tool-card btn-sipe">
+                <span class="status-badge status-production">Produção</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="layout-dashboard"></i></div>
                     <div class="tool-title">SIPE</div>
@@ -270,6 +348,7 @@
             </a>
             
             <a href="https://gerappc.gbxlearningtools.com/" target="_blank" class="tool-card btn-ppc">
+                <span class="status-badge status-production">Produção</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="file-edit"></i></div>
                     <div class="tool-title">Gera PPC</div>
@@ -278,6 +357,7 @@
             </a>
 
             <a href="https://ideaforge-omega.vercel.app/" target="_blank" class="tool-card btn-forge">
+                <span class="status-badge status-active-ai">IA Ativa</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="brain-circuit"></i></div>
                     <div class="tool-title">IdeaForge AI</div>
@@ -286,6 +366,7 @@
             </a>
 
             <a href="https://geracaso.gbxlearningtools.com" target="_blank" class="tool-card btn-caso">
+                <span class="status-badge status-active-ai">IA Ativa</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="graduation-cap"></i></div>
                     <div class="tool-title">GeraCaso AI</div>
@@ -294,6 +375,7 @@
             </a>
 
             <a href="#" target="_blank" class="tool-card btn-estuda" style="opacity: 0.5; pointer-events: none; cursor: default;">
+                <span class="status-badge status-dev">P&D</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="bot"></i></div>
                     <div class="tool-title">Estuda AI</div>
@@ -302,6 +384,7 @@
             </a>
 
             <a href="https://drive.google.com/file/d/1nXsY7F1q_WghwbcOSvqV5cDgoD2VC-cx/view?usp=drive_link" target="_blank" class="tool-card btn-workshop">
+                <span class="status-badge status-production">Treinamento</span>
                 <div class="tool-card-content">
                     <div class="icon-wrapper"><i data-lucide="clapperboard"></i></div>
                     <div class="tool-title">Workshop</div>
@@ -309,6 +392,21 @@
                 </div>
             </a>
 
+        </div>
+
+        <div class="feedback-banner">
+            <div class="feedback-text">
+                <h4>Ecossistema Colaborativo</h4>
+                <p>Ajude-nos a calibrar nossas ferramentas ou envie sugestões de novas demandas para o Núcleo de Inovação.</p>
+            </div>
+            <div class="feedback-actions">
+                <a href="#" target="_blank" class="feedback-btn">
+                    <i data-lucide="lightbulb"></i> Sugerir Nova IA
+                </a>
+                <a href="#" target="_blank" class="feedback-btn">
+                    <i data-lucide="bug"></i> Reportar Bug
+                </a>
+            </div>
         </div>
 
         <div class="extra-links">
@@ -338,7 +436,7 @@
         </div>
 
         <div class="footer">
-            © UNIVERSIDADE DE ARARAQUARA • UNIARA
+            © UNIVERSIDADE DE ARARAQUARA • NÚCLEO DE INOVAÇÃO TECNOLÓGICA
         </div>
     </div>
 
