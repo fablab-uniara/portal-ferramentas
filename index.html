@@ -10,146 +10,196 @@
         :root {
             --uniara-blue: #008cd2; 
             --uniara-red: #ec1c24;  
-            --uniara-dark: #111827;
-            --bg: #f9fafb;
+            --uniara-dark: #0f172a;
+            --bg: #f8fafc;
+            --card-border: #e2e8f0;
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg); 
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        .card {
+        .portal-container {
             background: white;
             width: 100%;
-            max-width: 760px; /* Alargado de 580px para 760px para acomodar perfeitamente as 3 colunas */
-            padding: 40px;
+            max-width: 900px; /* Expandido para dar respiro de dashboard */
+            padding: 48px;
             border-radius: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--card-border);
+        }
+
+        .header-section {
             text-align: center;
-            border: 1px solid #f3f4f6;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 32px;
         }
 
         .logo-uniara {
-            max-width: 170px;
-            margin-bottom: 24px;
+            max-width: 160px;
+            margin-bottom: 20px;
         }
 
-        h1 { font-size: 24px; font-weight: 700; color: var(--uniara-dark); margin: 0 0 8px 0; letter-spacing: -0.025em; }
-        p.subtitle { color: #6b7280; margin: 0 0 32px 0; font-size: 15px; line-height: 1.5; }
+        h1 { 
+            font-size: 28px; 
+            font-weight: 800; 
+            color: var(--uniara-dark); 
+            margin: 0 0 12px 0; 
+            letter-spacing: -0.03em; 
+        }
+        
+        p.subtitle { 
+            color: #64748b; 
+            margin: 0 auto; 
+            font-size: 15px; 
+            line-height: 1.6; 
+            max-width: 600px;
+        }
 
-        /* NOVO GRID 3 COLUNAS PARA AS FERRAMENTAS */
-        .btn-grid-main { 
+        /* GRID ESTILO DASHBOARD EXECUÇÃO */
+        .tools-grid { 
             display: grid; 
-            grid-template-columns: 1fr 1fr 1fr; 
-            gap: 14px; 
-            margin-bottom: 35px; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 16px; 
+            margin-bottom: 40px; 
         }
 
-        .btn {
+        .tool-card {
             display: flex;
-            flex-direction: column; 
-            align-items: center;
-            justify-content: center;
-            padding: 22px 16px;
+            flex-direction: column;
+            align-items: flex-start; /* Alinhamento à esquerda para um tom mais corporativo */
+            justify-content: space-between;
+            padding: 24px;
             border-radius: 16px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
+            background: white;
+            border: 1px solid var(--card-border);
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            gap: 10px;
-            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn span.btn-desc {
-            font-size: 11px;
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: transparent;
+            transition: background 0.2s;
+        }
+
+        .tool-card-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .icon-wrapper {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .tool-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--uniara-dark);
+            margin: 0;
+        }
+
+        .tool-desc {
+            font-size: 12px;
             font-weight: 400;
-            opacity: 0.85;
-            text-align: center;
-            line-height: 1.3;
+            color: #64748b;
+            line-height: 1.4;
         }
 
-        .btn i { width: 24px; height: 24px; }
+        /* Classes Temáticas e Estilização Individual */
+        .btn-sipe .icon-wrapper { background: #e0f2fe; color: var(--uniara-blue); }
+        .btn-sipe:hover { border-color: var(--uniara-blue); }
+        .btn-sipe:hover::before { background: var(--uniara-blue); }
 
-        /* Cores Temáticas dos Botões */
-        .btn-sipe { background-color: var(--uniara-blue); color: white; }
-        .btn-sipe:hover { background-color: #007bb0; transform: translateY(-2px); }
+        .btn-ppc .icon-wrapper { background: #f1f5f9; color: var(--uniara-dark); }
+        .btn-ppc:hover { border-color: var(--uniara-dark); }
+        .btn-ppc:hover::before { background: var(--uniara-dark); }
 
-        .btn-ppc { background-color: var(--uniara-dark); color: white; }
-        .btn-ppc:hover { background-color: #000; transform: translateY(-2px); }
+        .btn-forge .icon-wrapper { background: #e0e7ff; color: #4f46e5; }
+        .btn-forge:hover { border-color: #4f46e5; }
+        .btn-forge:hover::before { background: #4f46e5; }
 
-        .btn-forge { background-color: #4f46e5; color: white; }
-        .btn-forge:hover { background-color: #4338ca; transform: translateY(-2px); }
+        .btn-caso .icon-wrapper { background: #d1fae5; color: #059669; }
+        .btn-caso:hover { border-color: #059669; }
+        .btn-caso:hover::before { background: #059669; }
 
-        .btn-caso { background-color: #059669; color: white; }
-        .btn-caso:hover { background-color: #047857; transform: translateY(-2px); }
+        .btn-estuda .icon-wrapper { background: #fef3c7; color: #d97706; }
+        .btn-estuda:hover { border-color: #d97706; }
+        .btn-estuda:hover::before { background: #d97706; }
 
-        /* Laranja Quente para o Estuda AI */
-        .btn-estuda { background-color: #d97706; color: white; }
-        .btn-estuda:hover { background-color: #b45309; transform: translateY(-2px); }
+        .btn-workshop .icon-wrapper { background: #fee2e2; color: var(--uniara-red); }
+        .btn-workshop:hover { border-color: var(--uniara-red); }
+        .btn-workshop:hover::before { background: var(--uniara-red); }
 
-        /* Vermelho Uniara para o Botão de Destaque do Workshop */
-        .btn-workshop { background-color: var(--uniara-red); color: white; }
-        .btn-workshop:hover { background-color: #bd1218; transform: translateY(-2px); }
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
 
-        /* SEÇÃO DE SUPORTE */
+        /* SUPORTE E RECURSOS ADICIONAIS */
         .extra-links {
-            margin-top: 20px;
-            padding-top: 25px;
+            padding-top: 32px;
             border-top: 1px solid #f1f5f9;
-            text-align: left;
         }
 
         .section-title {
             font-size: 11px;
-            color: #64748b;
+            color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .section-title::before, .section-title::after {
+        .section-title::after {
             content: "";
             flex: 1;
             height: 1px;
-            background: #f1f5f9;
+            background: #edf2f7;
         }
 
         .support-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            position: relative;
-        }
-
-        .support-grid::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: #f1f5f9;
+            gap: 32px;
         }
 
         .column-title {
-            font-size: 11px;
-            color: #94a3b8;
+            font-size: 12px;
+            color: #64748b;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             display: block;
+            letter-spacing: 0.05em;
         }
 
         .item-link {
@@ -158,8 +208,8 @@
             text-decoration: none;
             color: #475569;
             font-size: 14px;
-            margin-bottom: 12px;
-            transition: color 0.2s;
+            margin-bottom: 14px;
+            transition: all 0.2s;
             gap: 10px;
         }
 
@@ -170,105 +220,125 @@
         .item-link i {
             width: 18px;
             height: 18px;
-            flex-shrink: 0;
+            color: #94a3b8;
+            transition: color 0.2s;
+        }
+
+        .item-link:hover i {
+            color: var(--uniara-blue);
         }
 
         .footer {
-            margin-top: 40px;
+            margin-top: 48px;
             font-size: 11px;
             color: #94a3b8;
             font-weight: 600;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             text-align: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 24px;
         }
 
-        /* Responsividade para telas menores */
-        @media (max-width: 640px) {
-            .btn-grid-main {
-                grid-template-columns: 1fr;
-            }
-            .support-grid {
-                grid-template-columns: 1fr;
-            }
-            .support-grid::after {
-                display: none;
-            }
+        /* Responsividade Avançada */
+        @media (max-width: 850px) {
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .tools-grid { grid-template-columns: 1fr; }
+            .support-grid { grid-template-columns: 1fr; gap: 24px; }
+            .portal-container { padding: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img src="logo_uniara_oficial.png" alt="Logo Uniara" class="logo-uniara">
-        
-        <h1>Portal de Ferramentas Acadêmicas</h1>
-        <p class="subtitle">Hub estratégico de inteligência artificial, gestão de ensino e projetos pedagógicos Uniara.</p>
+    <div class="portal-container">
+        <div class="header-section">
+            <img src="logo_uniara_oficial.png" alt="Logo Uniara" class="logo-uniara">
+            <h1>Portal de Ferramentas Acadêmicas</h1>
+            <p class="subtitle">Infraestrutura tecnológica de inteligência artificial, governança curricular e suporte pedagógico corporativo Uniara.</p>
+        </div>
 
-        <div class="btn-grid-main">
-            <a href="https://sipe.gbxlearningtools.com/" target="_blank" class="btn btn-sipe">
-                <i data-lucide="layout-dashboard"></i>
-                Acessar SIPE
-                <span class="btn-desc">Gestão de Ensino</span>
+        <div class="tools-grid">
+            
+            <a href="https://sipe.gbxlearningtools.com/" target="_blank" class="tool-card btn-sipe">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="layout-dashboard"></i></div>
+                    <div class="tool-title">SIPE</div>
+                    <div class="tool-desc">Gestão e inteligência analítica focada em planos de ensino.</div>
+                </div>
             </a>
             
-            <a href="https://gerappc.gbxlearningtools.com/" target="_blank" class="btn btn-ppc">
-                <i data-lucide="file-edit"></i>
-                Acessar Gera PPC
-                <span class="btn-desc">Projetos Pedagógicos</span>
+            <a href="https://gerappc.gbxlearningtools.com/" target="_blank" class="tool-card btn-ppc">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="file-edit"></i></div>
+                    <div class="tool-title">Gera PPC</div>
+                    <div class="tool-desc">Alinhamento automatizado estrutural com as diretrizes do MEC.</div>
+                </div>
             </a>
 
-            <a href="https://ideaforge-omega.vercel.app/" target="_blank" class="btn btn-forge">
-                <i data-lucide="brain-circuit"></i>
-                IdeaForge AI
-                <span class="btn-desc">Modelos de Negócio</span>
+            <a href="https://ideaforge-omega.vercel.app/" target="_blank" class="tool-card btn-forge">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="brain-circuit"></i></div>
+                    <div class="tool-title">IdeaForge AI</div>
+                    <div class="tool-desc">Módulo ágil de modelagem e validação rápida de novos negócios.</div>
+                </div>
             </a>
 
-            <a href="https://geracaso.gbxlearningtools.com" target="_blank" class="btn btn-caso">
-                <i data-lucide="graduation-cap"></i>
-                GeraCaso AI
-                <span class="btn-desc">Estudos de Caso</span>
+            <a href="https://geracaso.gbxlearningtools.com" target="_blank" class="tool-card btn-caso">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="graduation-cap"></i></div>
+                    <div class="tool-title">GeraCaso AI</div>
+                    <div class="tool-desc">Geração sob demanda de estudos de caso para dinâmicas ativas.</div>
+                </div>
             </a>
 
-            <a href="#" target="_blank" class="btn btn-estuda" style="opacity: 0.6; pointer-events: none;">
-                <i data-lucide="bot"></i>
-                Estuda AI
-                <span class="btn-desc">Tutor Inteligente 24/7</span>
+            <a href="#" target="_blank" class="tool-card btn-estuda" style="opacity: 0.5; pointer-events: none; cursor: default;">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="bot"></i></div>
+                    <div class="tool-title">Estuda AI</div>
+                    <div class="tool-desc">Ambiente inteligente e preditivo de suporte à retenção discente.</div>
+                </div>
             </a>
 
-           <a href="https://drive.google.com/file/d/1nXsY7F1q_WghwbcOSvqV5cDgoD2VC-cx/view?usp=drive_link" target="_blank" class="btn btn-workshop">
-                <i data-lucide="clapperboard"></i>
-                Workshop SIPE/PPC
-                <span class="btn-desc">Gravação e Treinamento</span>
+            <a href="https://drive.google.com/file/d/1nXsY7F1q_WghwbcOSvqV5cDgoD2VC-cx/view?usp=drive_link" target="_blank" class="tool-card btn-workshop">
+                <div class="tool-card-content">
+                    <div class="icon-wrapper"><i data-lucide="clapperboard"></i></div>
+                    <div class="tool-title">Workshop</div>
+                    <div class="tool-desc">Imersões em vídeo e sessões práticas SIPE / Gera PPC.</div>
+                </div>
             </a>
+
+        </div>
 
         <div class="extra-links">
-            <div class="section-title">Recursos e Suporte Técnico</div>
+            <div class="section-title">Infraestrutura e Suporte</div>
             
             <div class="support-grid">
                 <div class="support-column">
-                    <span class="column-title">Documentação</span>
+                    <span class="column-title">Documentação Acadêmica</span>
                     <a href="https://drive.google.com/file/d/16qHK7s_25s0eBR11El17By7fMlVzz_ml/view?usp=sharing" target="_blank" class="item-link">
-                        <i data-lucide="book-open"></i> Manuais SIPE / PPC
+                        <i data-lucide="book-open"></i> Manuais Operacionais - SIPE / PPC
                     </a>
-                    <a href="#" target="_blank" class="item-link" style="opacity: 0.6; pointer-events: none;">
-                        <i data-lucide="sparkles"></i> Manuais de IA (Breve)
+                    <a href="#" target="_blank" class="item-link" style="opacity: 0.5; pointer-events: none;">
+                        <i data-lucide="sparkles"></i> Manuais de Engenharia de Prompt (Breve)
                     </a>
                 </div>
 
-                <div class="support-column" style="padding-left: 15px;">
-                    <span class="column-title">Suporte</span>
+                <div class="support-column">
+                    <span class="column-title">Atendimento Técnico</span>
                     <a href="https://wa.me/5516981492620" target="_blank" class="item-link">
-                        <i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp
+                        <i data-lucide="message-circle" style="color: #25D366;"></i> Plantão de Dúvidas via WhatsApp
                     </a>
                     <a href="mailto:gbraz@uniara.edu.br" class="item-link">
-                        <i data-lucide="mail"></i> Enviar E-mail
+                        <i data-lucide="mail"></i> Canal Direto via E-mail Institucional
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            © UNIVERSIDADE DE ARARAQUARA
+            © UNIVERSIDADE DE ARARAQUARA • NÚCLEO DE INOVAÇÃO TECNOLÓGICA
         </div>
     </div>
 
